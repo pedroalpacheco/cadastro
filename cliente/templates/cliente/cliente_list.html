@@ -1,22 +1,20 @@
-{% load staticfiles %}
-<html>
-    <head>
-        <title>Lista de clientes</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Lista de clientes</a></h1>
-        </div>
+{% extends 'cliente/base.html' %}
 
-        {% for post in posts %}
-            <div>
-                <p>Cliente: {{ post }}</p>
-                <h1><a href="">{{ post.title }}</a></h1>
-                <p>{{ post.text|linebreaks }}</p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post }}
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h1><a href="">{{ post.title | linebreaks }}</a></h1>
+            <p>Sobrenome: {{post.last_name}}</p>
+            <p>Endereço: {{post.endereco}}</p>
+    		<p>Complemento: {{post.complemento}}</p>
+    		<p>Bairro: {{post.bairro}}</p>
+    		<p>Cidade: {{post.cidade}}</p>
+    		<p>CPF: {{post.cpf}}</p>
+    		<p>RG: {{post.rg}}</p>
+    		<p>----------</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
