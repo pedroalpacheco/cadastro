@@ -4,9 +4,9 @@
     {% for post in posts %}
         <div class="post">
             <div class="date">
-                {{ post }}
+                <!--{{ post }}-->
             </div>
-            <h1><a href="">{{ post.title | linebreaks }}</a></h1>
+            <h1><a href="">{{ post.first_name|linebreaks }}</a></h1>
             <p>Sobrenome: {{post.last_name}}</p>
             <p>Endereço: {{post.endereco}}</p>
     		<p>Complemento: {{post.complemento}}</p>
